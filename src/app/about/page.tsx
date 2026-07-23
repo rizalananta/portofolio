@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Nav } from "@/components/nav";
-import { Cursor } from "@/components/cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Story } from "@/components/about/story";
 import { ExperienceSection } from "@/components/about/experience";
@@ -17,7 +16,6 @@ export default function AboutPage() {
   return (
     <>
       <SmoothScroll />
-      <Cursor />
       <div className="grain" />
       <Nav />
       <main>
