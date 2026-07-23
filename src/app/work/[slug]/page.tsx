@@ -1,0 +1,53 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { Nav } from "@/components/nav";
+import { Cursor } from "@/components/cursor";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { Footer } from "@/components/footer";
+import { CaseStudy } from "@/components/work/case-study";
+import { projects } from "@/data/content";
+
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  if (!project) return {};
+  return {
+    title: project.title,
+    description: project.summary,
+  };
+}
+
+export default async function WorkPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const index = projects.findIndex((p) => p.slug === slug);
+  if (index === -1) notFound();
+
+  const project = projects[index];
+  const prev = projects[(index - 1 + projects.length) % projects.length];
+  const next = projects[(index + 1) % projects.length];
+
+  return (
+    <>
+      <SmoothScroll />
+      <Cursor />
+      <div className="grain" />
+      <Nav />
+      <main>
+        <CaseStudy project={project} prev={prev} next={next} />
+      </main>
+      <Footer />
+    </>
+  );
+}

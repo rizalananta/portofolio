@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Mail, Link2, MapPin } from "lucide-react";
 import { site, nav, footer } from "@/data/content";
 import { Container } from "@/components/ui/section";
@@ -8,10 +9,10 @@ export function Footer() {
       <Container>
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[2fr_1fr_1fr]">
           <div>
-            <a href="#home" className="font-display flex items-center gap-2 text-sm font-bold text-text">
+            <Link href="/" className="font-display flex items-center gap-2 text-sm font-bold text-text">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
               {site.initials}
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-[13px] leading-relaxed text-text-dim">{footer.description}</p>
           </div>
 
@@ -22,14 +23,16 @@ export function Footer() {
             <ul className="flex flex-col gap-2.5">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="text-[13.5px] text-text-muted transition-colors hover:text-accent-2"
-                  >
+                  <Link href={item.href} className="text-[13.5px] text-text-muted transition-colors hover:text-accent-2">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
+              <li>
+                <a href={site.resumeUrl} className="text-[13.5px] text-text-muted transition-colors hover:text-accent-2">
+                  Resume
+                </a>
+              </li>
             </ul>
           </div>
 

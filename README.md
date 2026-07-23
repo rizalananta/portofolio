@@ -1,15 +1,10 @@
 # Afrizal Widya Ananta — Portfolio
 
-A premium, editorial-style personal portfolio built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
+A premium, editorial portfolio inspired by the layout philosophy of perryw-2023.webflow.io — split into a minimal work list, a dedicated About/Info page, and full case-study pages per project.
 
 ## Stack
 
-- **Next.js 15** (App Router) + TypeScript
-- **Tailwind CSS v4** — design tokens defined in `src/app/globals.css`
-- **Framer Motion** — scroll reveals, hero animation, tab transitions
-- **Lenis** — smooth scrolling
-- **Lucide React** — icons
-- Custom animated cursor, magnetic buttons, sticky nav with hide-on-scroll
+Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion · Lenis · Lucide React
 
 ## Getting started
 
@@ -18,63 +13,47 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The first run needs an internet connection so Next.js can fetch the Geist, Geist Mono, and Inter fonts from Google Fonts.
+Open http://localhost:3000. First run needs internet so Next.js can fetch the Geist, Geist Mono, and Inter fonts.
 
 ```bash
-npm run build   # production build
-npm run start   # serve the production build
+npm run build
+npm run start
 ```
+
+## Site structure
+
+- **`/`** — minimal hero + "Selected Work" list (large rows, not cards)
+- **`/about`** — your story, experience timeline, education, skills, certifications (the "Info" page equivalent)
+- **`/work/[slug]`** — a dedicated case-study page per project: Overview → My Role → Process → Gallery → Results → Reflection, with a sticky Contents nav and prev/next project links at the bottom
 
 ## Editing content
 
-Everything text-based — name, role, bio, experience, education, skills, certifications, and projects — lives in **`src/data/content.ts`**. Edit that one file and the whole site updates; you shouldn't need to touch any component to update copy.
+Everything — bio, story blocks, experience, education, skills, and every project's full case-study copy — lives in **`src/data/content.ts`**. Edit that file; no components need to change.
 
-## Editing design tokens
+To add a new project, add an entry to the `projects` array in `content.ts` with a unique `slug` — a new `/work/[slug]` page is generated automatically.
 
-Colors and a few global rules live at the top of **`src/app/globals.css`** under `:root` and `@theme inline`:
+## Adding real images
 
-- `--bg`, `--surface`, `--card` — background layers
-- `--accent` (violet) / `--accent-2` (cyan) — the two accent colors
-- `--text`, `--text-muted`, `--text-dim` — text hierarchy
+Gallery slots, project covers, and About-page photos currently render as labeled placeholder blocks (`src/components/ui/image-placeholder.tsx`) since no real photography or dashboard screenshots were provided. To swap in real images:
 
-## Structure
+1. Add image files to `public/images/`
+2. Replace the relevant `ImagePlaceholder` usage with `next/image`, e.g.:
+   ```tsx
+   import Image from "next/image";
+   <Image src="/images/dashboard-1.png" alt="..." width={1200} height={750} className="rounded-2xl" />
+   ```
+3. For the case-study gallery, each entry in a project's `gallery` array in `content.ts` has a `caption` and `kind` you can keep as `alt` text once you add a real `src`.
 
-```
-src/
-  app/
-    layout.tsx          fonts + SEO metadata
-    page.tsx             assembles all sections
-    globals.css           design tokens
-  components/
-    nav.tsx              sticky navigation
-    cursor.tsx            custom cursor
-    magnetic.tsx           magnetic button wrapper
-    reveal.tsx              scroll-reveal wrapper
-    smooth-scroll.tsx        Lenis provider
-    footer.tsx
-    ui/section.tsx            Container, Eyebrow, SectionHeading
-    sections/
-      hero.tsx
-      marquee.tsx
-      about.tsx
-      education.tsx
-      experience.tsx        tabbed timeline
-      skills.tsx
-      projects.tsx          grid + modal
-      project-modal.tsx
-      cta.tsx
-  data/
-    content.ts                all site content — edit this
-  lib/
-    utils.ts                   cn() class helper
-```
+## Design tokens
+
+Colors and fonts live at the top of `src/app/globals.css` under `:root` and `@theme inline` — `--accent` (violet) / `--accent-2` (cyan), `--bg` / `--surface` / `--card` layers, `--text` hierarchy.
 
 ## Deploying
 
-Standard Next.js app — deploys to Vercel with zero config, or anywhere else that supports Next.js (Netlify, a Node server, Docker, etc.).
+Push to GitHub, import into Vercel — zero config needed, it auto-detects Next.js.
 
 ## Notes
 
-- Project cards use CSS gradients as placeholder imagery instead of the old screenshots. Swap in real images by adding them to `public/` and updating `src/components/sections/projects.tsx`.
-- The custom cursor and some hover effects only activate on devices with a fine pointer (mouse); touch/mobile is unaffected.
-- Reduced-motion preferences are respected — Lenis smooth scroll and most animations shorten automatically.
+- The custom cursor, magnetic buttons, and gallery lightbox only activate on fine-pointer (mouse) devices where relevant; touch/mobile gets clean equivalents.
+- Reduced-motion preferences are respected throughout.
+- All three sample projects (`merchant-tier-shift-dashboard`, `smartfleet-iot-solution`, `dashboard-prd`) are pulled from your original portfolio content, reorganized into the case-study format — no achievements were invented.
