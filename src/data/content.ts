@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 // All portfolio content lives here. Edit this file to update
-// the site — no need to touch any component.
+// the site - no need to touch any component.
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
@@ -10,7 +10,7 @@ export const site = {
   role: "Business Analytics · Product Management · Data Strategy",
   tagline: "I turn raw data into decisions that move a business forward.",
   description:
-    "Management undergraduate at Universitas Airlangga focused on business analytics and product management — currently a Data Analyst Intern at FIFGROUP, based between Jakarta and Surabaya, Indonesia.",
+    "Management undergraduate at Universitas Airlangga focused on business analytics and product management - currently a Data Analyst Intern at FIFGROUP, based between Jakarta and Surabaya, Indonesia.",
   email: "anantafrizal@gmail.com",
   location: "Jakarta, Indonesia",
   linkedin: "https://linkedin.com/in/afrizalananta",
@@ -47,7 +47,7 @@ export type ProcessStep = {
 
 export type GalleryImage = {
   caption: string;
-  kind: string; // e.g. "Dashboard screenshot", "SQL query", "Event photo" — placeholder label until real images are added
+  kind: string; // e.g. "Dashboard screenshot", "SQL query", "Event photo" - placeholder label until real images are added
   gradient: string;
   span?: "full" | "half"; // layout hint
 };
@@ -64,6 +64,7 @@ export type Project = {
   tools: string[];
   summary: string;
   gradient: string;
+  coverImage?: string;
   overview: string[];
   myRole: string[];
   process: ProcessStep[];
@@ -76,19 +77,20 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: "merchant-tier-shift-dashboard",
+    coverImage: "/images/merchant-tier-cover.jpg",
     title: "Merchant Tier-Shift Dashboard",
     category: "Data Analytics · Dashboard",
     company: "PT. Bank Rakyat Indonesia (Persero) Tbk",
     year: "2025 – 2026",
     timeline: "Ongoing, Oct 2025 – May 2026",
-    role: "Business Development Intern — Retail Transaction",
+    role: "Business Development Intern - Retail Transaction",
     team: "Retail Transaction team, BRI Head Office",
     tools: ["Excel", "SQL", "Power BI", "Google Sheets"],
     summary:
-      "Nationwide merchant, EDC, and QRIS transaction data across 18 regional offices — built and maintained to support acquisition performance and strategic reporting.",
+      "Nationwide merchant, EDC, and QRIS transaction data across 18 regional offices - built and maintained to support acquisition performance and strategic reporting.",
     gradient: "from-[#0D2B4E] to-[#0E4A8A]",
     overview: [
-      "BRI's retail transaction team needed a clear, standing view of how merchants were moving between performance tiers — nationwide, across 18 regional offices — to know where acquisition efforts were working and where coverage gaps remained.",
+      "BRI's retail transaction team needed a clear, standing view of how merchants were moving between performance tiers - nationwide, across 18 regional offices - to know where acquisition efforts were working and where coverage gaps remained.",
       "The underlying data (merchant records, EDC device activity, QRIS transactions) existed, but it was scattered and not structured in a way stakeholders could act on quickly.",
     ],
     myRole: [
@@ -127,17 +129,18 @@ export const projects: Project[] = [
       { caption: "Padel-court merchant pipeline tracking", kind: "Working notes", gradient: "from-[#102843] to-[#1A4D7A]" },
     ],
     results: [
-      "Gave the retail transaction team a single, standing view of merchant tier movement across all 18 regional offices — replacing ad-hoc, office-by-office reporting.",
+      "Gave the retail transaction team a single, standing view of merchant tier movement across all 18 regional offices - replacing ad-hoc, office-by-office reporting.",
       "Supported expansion-planning conversations with province-level EDC market share data that wasn't previously assembled in one place.",
       "Provided visibility into the padel-court merchant pipeline as BRI tested acquisition in an emerging segment.",
     ],
     reflection: [
-      "Working across 18 offices meant working across 18 slightly different reporting habits — a lot of the real effort was in reconciling definitions before any dashboard could be trusted.",
+      "Working across 18 offices meant working across 18 slightly different reporting habits - a lot of the real effort was in reconciling definitions before any dashboard could be trusted.",
       "If I revisited this, I'd push earlier for a shared data-entry standard across regional offices, rather than normalizing inconsistencies downstream every reporting cycle.",
     ],
   },
   {
     slug: "smartfleet-iot-solution",
+    coverImage: "/images/smartfleet-cover.jpg",
     title: "SmartFleet IoT Solution",
     category: "Product Management · Case Study",
     company: "Independent product case study",
@@ -151,12 +154,12 @@ export const projects: Project[] = [
     gradient: "from-[#241636] to-[#4C2A87]",
     overview: [
       "SmartFleet is a self-directed product management case study: an IoT-based fleet management concept for logistics companies that need real-time vehicle tracking, route optimization, and better operational visibility.",
-      "The goal wasn't to ship software — it was to practice running a product from problem definition through a structured backlog the way a Scrum team would.",
+      "The goal wasn't to ship software - it was to practice running a product from problem definition through a structured backlog the way a Scrum team would.",
     ],
     myRole: [
       "Defined the problem statement and target user (logistics fleet operators managing delivery vehicles at scale).",
       "Wrote user stories and acceptance criteria, and organized them into epics inside Jira.",
-      "Ran the case study using Scrum ceremonies — sprint planning, backlog grooming — to practice translating ambiguous goals into a structured plan.",
+      "Ran the case study using Scrum ceremonies - sprint planning, backlog grooming - to practice translating ambiguous goals into a structured plan.",
     ],
     process: [
       {
@@ -167,7 +170,7 @@ export const projects: Project[] = [
       {
         title: "Defining the backlog",
         description:
-          "Broke the concept into epics — live tracking, route optimization, driver reporting — then wrote user stories under each with clear acceptance criteria.",
+          "Broke the concept into epics - live tracking, route optimization, driver reporting - then wrote user stories under each with clear acceptance criteria.",
       },
       {
         title: "Running it like Scrum",
@@ -185,12 +188,13 @@ export const projects: Project[] = [
       "Practiced running product discovery and prioritization end-to-end using real Scrum tooling rather than theory alone.",
     ],
     reflection: [
-      "The hardest part wasn't writing user stories — it was resisting the urge to jump straight to features before the problem statement was tight enough to prioritize against.",
+      "The hardest part wasn't writing user stories - it was resisting the urge to jump straight to features before the problem statement was tight enough to prioritize against.",
       "Next time, I'd bring in a rough technical feasibility pass earlier, since a few of the IoT connectivity assumptions would need real hardware input to validate.",
     ],
   },
   {
     slug: "dashboard-prd",
+    coverImage: "/images/dashboard-prd-cover.jpg",
     title: "Dashboard PRD",
     category: "Product Management · Documentation",
     company: "Independent product case study",
@@ -203,7 +207,7 @@ export const projects: Project[] = [
       "A Product Requirements Document for the Merchant Tier-Shift Dashboard, written in Confluence to formalize the tiering logic and requirements.",
     gradient: "from-[#0F1B2E] to-[#173456]",
     overview: [
-      "Alongside building the Merchant Tier-Shift Dashboard at BRI, I wrote a formal Product Requirements Document — structuring how large-scale transaction data would be organized, how tiering logic should be defined, and what a technical team would need to build against it.",
+      "Alongside building the Merchant Tier-Shift Dashboard at BRI, I wrote a formal Product Requirements Document - structuring how large-scale transaction data would be organized, how tiering logic should be defined, and what a technical team would need to build against it.",
     ],
     myRole: [
       "Authored the PRD end-to-end in Confluence: problem statement, requirements, tiering-logic definitions, and success criteria.",
@@ -218,7 +222,7 @@ export const projects: Project[] = [
       {
         title: "Structuring the document",
         description:
-          "Organized the PRD around problem, scope, functional requirements, and edge cases — keeping it specific enough to prevent ambiguity during implementation.",
+          "Organized the PRD around problem, scope, functional requirements, and edge cases - keeping it specific enough to prevent ambiguity during implementation.",
       },
     ],
     gallery: [
@@ -244,15 +248,15 @@ export const about = {
     {
       heading: "Studying management, drawn to data.",
       paragraphs: [
-        "I'm a management undergraduate at Universitas Airlangga. Somewhere in my second year, coursework in financial and management accounting turned into a genuine interest in how businesses actually use numbers to make decisions — not just report them.",
-        "That pulled me toward analytics: SQL, Excel, Power BI — tools that let me turn a spreadsheet of transactions into something a stakeholder could read in thirty seconds and act on.",
+        "I'm a management undergraduate at Universitas Airlangga. Somewhere in my second year, coursework in financial and management accounting turned into a genuine interest in how businesses actually use numbers to make decisions - not just report them.",
+        "That pulled me toward analytics: SQL, Excel, Power BI - tools that let me turn a spreadsheet of transactions into something a stakeholder could read in thirty seconds and act on.",
       ],
     },
     {
       heading: "Learning by doing, across three very different rooms.",
       paragraphs: [
-        "Over the last two years I've worked inside FIFGROUP, Bank Rakyat Indonesia, and PLN — a finance company, a state bank, and a state utility. Three very different organizations, but the same underlying skill each time: understand the business problem first, then prove the answer with data.",
-        "In between, running operations at a local F&B business taught me the other half — that a dashboard is only useful if the operational reality behind it is solid.",
+        "Over the last two years I've worked inside FIFGROUP, Bank Rakyat Indonesia, and PLN - a finance company, a state bank, and a state utility. Three very different organizations, but the same underlying skill each time: understand the business problem first, then prove the answer with data.",
+        "In between, running operations at a local F&B business taught me the other half - that a dashboard is only useful if the operational reality behind it is solid.",
       ],
     },
     {
@@ -274,7 +278,7 @@ export const about = {
 export const education = {
   eyebrow: "Education",
   university: "Universitas Airlangga",
-  degree: "Bachelor's Degree — Management",
+  degree: "Bachelor's Degree - Management",
   period: "2022 – Present",
   location: "Surabaya, East Java",
   gpa: "3.56",
@@ -314,12 +318,12 @@ export const experience: { eyebrow: string; tabs: { key: string; label: string; 
           bullets: [
             "Extracted and processed 400,000+ surveillance records using SQL (Toad for Oracle) to support risk monitoring, compliance analysis, and operational reporting.",
             "Refined data models and visualizations in Power BI surveillance dashboards, improving accessibility and decision-making speed for stakeholders.",
-            "Managed the end-to-end Warung Kejujuran program — inventory, stock reconciliation, and data documentation — to assess employee compliance and purchasing behavior.",
+            "Managed the end-to-end Warung Kejujuran program - inventory, stock reconciliation, and data documentation - to assess employee compliance and purchasing behavior.",
           ],
         },
         {
           company: "PT. Bank Rakyat Indonesia (Persero) Tbk",
-          role: "Business Development Intern — Retail Transaction",
+          role: "Business Development Intern - Retail Transaction",
           period: "Oct 2025 – May 2026",
           location: "Jakarta Pusat, DKI Jakarta",
           current: true,
@@ -348,7 +352,7 @@ export const experience: { eyebrow: string; tabs: { key: string; label: string; 
           period: "Aug – Oct 2023",
           location: "Surabaya, East Java",
           bullets: [
-            "Ran daily front- and back-of-house operations — service, cash handling, and inventory — for consistency at scale.",
+            "Ran daily front- and back-of-house operations - service, cash handling, and inventory - for consistency at scale.",
             "Led a 9-person team, writing SOPs and job descriptions that raised productivity and role clarity.",
             "Maintained relationships with 7 key suppliers, securing better terms and lifting on-time delivery by ~20%.",
             "Contributed to workflow changes that helped drive 106% month-over-month revenue growth.",
@@ -392,7 +396,7 @@ export const experience: { eyebrow: string; tabs: { key: string; label: string; 
           period: "Nov 2023",
           location: "Surabaya, East Java",
           bullets: [
-            "Coordinated logistics — accommodation, transport, permits, supplies — for 4,000+ participants.",
+            "Coordinated logistics - accommodation, transport, permits, supplies - for 4,000+ participants.",
             "Designed health and security protocols to safeguard all event stakeholders.",
             "Liaised with vendors, local authorities, and internal teams to keep execution compliant and seamless.",
           ],
@@ -442,7 +446,7 @@ export const skillCategories: SkillCategory[] = [
   {
     icon: "Globe",
     title: "Language & Communication",
-    skills: ["Bahasa Indonesia — Native", "English — C2 Proficient", "Presentation & Reporting"],
+    skills: ["Bahasa Indonesia - Native", "English - C2 Proficient", "Presentation & Reporting"],
     tools: ["Canva", "Photoshop", "Illustrator"],
   },
 ];

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import type { GalleryImage, Project } from "@/data/content";
@@ -72,11 +73,24 @@ export function CaseStudy({
           </Reveal>
 
           <Reveal delay={0.14}>
-            <ImagePlaceholder
-              gradient={project.gradient}
-              label="Project cover — add your own"
-              className="mt-10 aspect-[16/8] w-full md:mt-14"
-            />
+            {project.coverImage ? (
+              <div className="relative mt-10 aspect-[16/8] w-full overflow-hidden rounded-2xl border border-border md:mt-14">
+                <Image
+                  src={project.coverImage}
+                  alt={`${project.title} cover`}
+                  fill
+                  sizes="(min-width: 1280px) 1200px, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            ) : (
+              <ImagePlaceholder
+                gradient={project.gradient}
+                label="Project cover - add your own"
+                className="mt-10 aspect-[16/8] w-full md:mt-14"
+              />
+            )}
           </Reveal>
 
           <Reveal delay={0.2}>
@@ -198,7 +212,7 @@ export function CaseStudy({
                 </h2>
               </Reveal>
               <p className="mt-3 max-w-xl text-[13px] text-text-dim">
-                Placeholder slots sized for real screenshots — click to preview.
+                Placeholder slots sized for real screenshots - click to preview.
               </p>
               <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {project.gallery.map((img, i) => (

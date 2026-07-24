@@ -28,11 +28,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a href={site.resumeUrl} className="text-[13.5px] text-text-muted transition-colors hover:text-accent-2">
-                  Resume
-                </a>
-              </li>
             </ul>
           </div>
 

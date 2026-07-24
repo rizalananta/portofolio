@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/nav";
-import { Cursor } from "@/components/cursor";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { Footer } from "@/components/footer";
 import { CaseStudy } from "@/components/work/case-study";
@@ -41,7 +40,6 @@ export default async function WorkPage({
   return (
     <>
       <SmoothScroll />
-      <Cursor />
       <div className="grain" />
       <Nav />
       <main>

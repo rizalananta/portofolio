@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/content";
 import { Container, Eyebrow } from "@/components/ui/section";
@@ -36,14 +37,26 @@ export function WorkList() {
                     />
                   </div>
                   <p className="font-data mt-2 text-[12.5px] uppercase tracking-[0.06em] text-text-dim">
-                    {project.company} · {project.year} — {project.summary}
+                    {project.company} · {project.year} - {project.summary}
                   </p>
                 </div>
 
-                <ImagePlaceholder
-                  gradient={project.gradient}
-                  className="aspect-[16/10] w-full opacity-90 transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                />
+                {project.coverImage ? (
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-border transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+                    <Image
+                      src={project.coverImage}
+                      alt={`${project.title} cover`}
+                      fill
+                      sizes="(min-width: 768px) 280px, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <ImagePlaceholder
+                    gradient={project.gradient}
+                    className="aspect-[16/10] w-full opacity-90 transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
+                )}
 
                 <div className="hidden flex-wrap justify-end gap-1.5 md:flex">
                   {project.tools.slice(0, 2).map((t) => (

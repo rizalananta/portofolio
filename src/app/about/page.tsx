@@ -9,7 +9,7 @@ import { site } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `About ${site.name} — ${site.description}`,
+  description: `About ${site.name} - ${site.description}`,
 };
 
 export default function AboutPage() {

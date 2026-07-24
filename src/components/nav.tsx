@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Mail } from "lucide-react";
 import { nav, site } from "@/data/content";
 import { Magnetic } from "@/components/magnetic";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,6 @@ import { cn } from "@/lib/utils";
 export function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -31,13 +30,14 @@ export function Nav() {
         scrolled ? "border-b border-border bg-bg/70 backdrop-blur-xl" : "border-b border-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-6 md:px-10">
+      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-5 sm:px-6 md:px-10">
         <Link href="/" className="font-display flex items-center gap-2 text-sm font-bold tracking-tight text-text" data-cursor-hover>
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {site.shortName}
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Nav links: always visible, on every screen size - no hamburger */}
+        <ul className="flex items-center gap-5 sm:gap-8">
           {nav.map((item) => {
             const active = pathname === item.href;
             return (
@@ -58,13 +58,13 @@ export function Nav() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="flex items-center gap-3">
           <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor-hover
-            className="font-display text-[13px] font-medium text-text-muted transition-colors hover:text-text"
+            className="font-display hidden text-[13px] font-medium text-text-muted transition-colors hover:text-text md:block"
           >
             LinkedIn
           </a>
@@ -72,58 +72,15 @@ export function Nav() {
             <a
               href={`mailto:${site.email}`}
               data-cursor-hover
-              className="font-display inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-white transition-[filter] hover:brightness-110"
+              aria-label="Email me"
+              className="font-display inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-white transition-[filter] hover:brightness-110 sm:px-4"
             >
-              Get in touch
+              <Mail size={14} className="sm:hidden" />
+              <span className="hidden sm:inline">Get in touch</span>
             </a>
           </Magnetic>
         </div>
-
-        <button className="text-text md:hidden" onClick={() => setMobileOpen((v) => !v)} aria-label="Toggle menu">
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
       </div>
-
-      {mobileOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: "auto", opacity: 1 }}
-          transition={{ duration: 0.3, ease: [0.22, 0.68, 0, 1] }}
-          className="overflow-hidden border-t border-border bg-bg/95 backdrop-blur-xl md:hidden"
-        >
-          <ul className="flex flex-col gap-1 px-6 py-4">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-display block py-2.5 text-[15px] font-medium text-text-muted transition-colors hover:text-text"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a
-                href={site.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-display block py-2.5 text-[15px] font-medium text-text-muted transition-colors hover:text-text"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li className="pt-2">
-              <a
-                href={`mailto:${site.email}`}
-                className="font-display inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-[13px] font-semibold text-white"
-              >
-                Get in touch
-              </a>
-            </li>
-          </ul>
-        </motion.div>
-      )}
     </motion.nav>
   );
 }

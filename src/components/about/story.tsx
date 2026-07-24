@@ -1,13 +1,13 @@
+import Image from "next/image";
 import { about, currentlyDoing, interests, site } from "@/data/content";
 import { Container, Eyebrow } from "@/components/ui/section";
 import { Reveal } from "@/components/reveal";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
 import { Magnetic } from "@/components/magnetic";
 
-const gradients = [
-  "from-[#241636] to-[#4C2A87]",
-  "from-[#0D2B4E] to-[#0E4A8A]",
-  "from-[#1E1230] to-[#3B2166]",
+const storyImages = [
+  { src: "/images/about-me.jpg", alt: "Afrizal Widya Ananta portrait" },
+  { src: "/images/learning-by-doing.jpg", alt: "Afrizal on-site during internships at BRI and PLN" },
+  { src: "/images/what-im-doing-now.jpg", alt: "Afrizal at the FIFGROUP office" },
 ];
 
 export function Story() {
@@ -27,18 +27,9 @@ export function Story() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Magnetic>
               <a
-                href={site.resumeUrl}
-                data-cursor-hover
-                className="font-display inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-[filter] hover:brightness-110"
-              >
-                View resume
-              </a>
-            </Magnetic>
-            <Magnetic>
-              <a
                 href={`mailto:${site.email}`}
                 data-cursor-hover
-                className="font-display inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-text transition-colors hover:border-border-hover hover:bg-white/[0.03]"
+                className="font-display inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white transition-[filter] hover:brightness-110"
               >
                 {site.email}
               </a>
@@ -70,11 +61,16 @@ export function Story() {
                 }`}
               >
                 <Reveal>
-                  <ImagePlaceholder
-                    gradient={gradients[i % gradients.length]}
-                    label="Photo — add your own"
-                    className="aspect-[4/5] w-full"
-                  />
+                  <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border">
+                    <Image
+                      src={storyImages[i % storyImages.length].src}
+                      alt={storyImages[i % storyImages.length].alt}
+                      fill
+                      sizes="(min-width: 768px) 480px, 100vw"
+                      className="object-cover"
+                      priority={i === 0}
+                    />
+                  </div>
                 </Reveal>
                 <Reveal delay={0.1}>
                   <h2 className="font-display text-balance text-[clamp(1.5rem,3vw,2.1rem)] font-semibold leading-tight tracking-[-0.02em] text-text">
