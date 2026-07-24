@@ -6,11 +6,11 @@
 export const site = {
   name: "Afrizal Widya Ananta",
   shortName: "Afrizal Ananta",
-  initials: "AWA",
-  role: "Business Analytics · Product Management · Data Strategy",
+  initials: "Afrizal Ananta",
+  role: "Business Development · Data Analytics",
   tagline: "I turn raw data into decisions that move a business forward.",
   description:
-    "Management undergraduate at Universitas Airlangga focused on business analytics and product management - currently a Data Analyst Intern at FIFGROUP, based between Jakarta and Surabaya, Indonesia.",
+    "Management fresh graduate focused on business development and data analytics - currently a Data Analyst Intern at FIFGROUP, based in Jakarta Indonesia.",
   email: "anantafrizal@gmail.com",
   location: "Jakarta, Indonesia",
   linkedin: "https://linkedin.com/in/afrizalananta",
@@ -34,7 +34,7 @@ export const contactLinks = {
 
 export const heroMetrics = [
   { label: "Current role", value: "Data Analyst Intern", sub: "FIFGROUP · since May 2026", live: true },
-  { label: "Academic GPA", value: "3.56 / 4.00", sub: "Management, Univ. Airlangga" },
+  { label: "Academic GPA", value: "3.56 / 4.00", sub: "Management, Universitas Airlangga" },
   { label: "English proficiency", value: "C2 · 72/100", sub: "EF SET Certificate" },
 ];
 
@@ -82,22 +82,21 @@ export const projects: Project[] = [
     category: "Data Analytics · Dashboard",
     company: "PT. Bank Rakyat Indonesia (Persero) Tbk",
     year: "2025 – 2026",
-    timeline: "Ongoing, Oct 2025 – May 2026",
+    timeline: "Jan 2026 – Mar 2026",
     role: "Business Development Intern - Retail Transaction",
     team: "Retail Transaction team, BRI Head Office",
-    tools: ["Excel", "SQL", "Power BI", "Google Sheets"],
+    tools: ["Excel"],
     summary:
-      "Nationwide merchant, EDC, and QRIS transaction data across 18 regional offices - built and maintained to support acquisition performance and strategic reporting.",
+      "Nationwide merchant EDC transaction data across 18 regional offices - built and maintained to support acquisition performance and strategic reporting.",
     gradient: "from-[#0D2B4E] to-[#0E4A8A]",
     overview: [
       "BRI's retail transaction team needed a clear, standing view of how merchants were moving between performance tiers - nationwide, across 18 regional offices - to know where acquisition efforts were working and where coverage gaps remained.",
-      "The underlying data (merchant records, EDC device activity, QRIS transactions) existed, but it was scattered and not structured in a way stakeholders could act on quickly.",
+      "The underlying data (merchant records, EDC device activity, EDC transactions) existed, but it was scattered and not structured in a way stakeholders could act on quickly.",
     ],
     myRole: [
-      "Analyzed nationwide merchant, EDC, and QRIS transaction data spanning all 18 regional offices to evaluate device and merchant productivity.",
+      "Analyzed nationwide merchant EDC transaction data spanning all 18 regional offices to evaluate device and merchant productivity.",
       "Built and maintained a merchant tier-shift dashboard covering 300,000+ merchants nationwide to track market coverage and acquisition performance.",
       "Tracked EDC market share across all Indonesian provinces to support expansion planning discussions with stakeholders.",
-      "Monitored a specific national pipeline (padel-court merchants) as a case study in BRI's push into emerging customer segments.",
     ],
     process: [
       {
@@ -122,16 +121,13 @@ export const projects: Project[] = [
       },
     ],
     gallery: [
-      { caption: "Tier-shift dashboard overview", kind: "Power BI dashboard screenshot", gradient: "from-[#0B1E33] to-[#123B63]", span: "full" },
+      { caption: "Tier-shift dashboard overview", kind: "Dashboard screenshot", gradient: "from-[#0B1E33] to-[#123B63]", span: "full" },
       { caption: "Regional breakdown view", kind: "Dashboard screenshot", gradient: "from-[#0E2A47] to-[#1B4F82]" },
       { caption: "EDC market share by province", kind: "Dashboard screenshot", gradient: "from-[#0D2440] to-[#164675]" },
-      { caption: "Underlying SQL extraction logic", kind: "SQL query", gradient: "from-[#0A1B2E] to-[#0F3A5C]" },
-      { caption: "Padel-court merchant pipeline tracking", kind: "Working notes", gradient: "from-[#102843] to-[#1A4D7A]" },
     ],
     results: [
       "Gave the retail transaction team a single, standing view of merchant tier movement across all 18 regional offices - replacing ad-hoc, office-by-office reporting.",
       "Supported expansion-planning conversations with province-level EDC market share data that wasn't previously assembled in one place.",
-      "Provided visibility into the padel-court merchant pipeline as BRI tested acquisition in an emerging segment.",
     ],
     reflection: [
       "Working across 18 offices meant working across 18 slightly different reporting habits - a lot of the real effort was in reconciling definitions before any dashboard could be trusted.",
@@ -248,7 +244,7 @@ export const about = {
     {
       heading: "Studying management, drawn to data.",
       paragraphs: [
-        "I'm a management undergraduate at Universitas Airlangga. Somewhere in my second year, coursework in financial and management accounting turned into a genuine interest in how businesses actually use numbers to make decisions - not just report them.",
+        "Somewhere in my second year, coursework in financial and management accounting turned into a genuine interest in how businesses actually use numbers to make decisions - not just report them.",
         "That pulled me toward analytics: SQL, Excel, Power BI - tools that let me turn a spreadsheet of transactions into something a stakeholder could read in thirty seconds and act on.",
       ],
     },
@@ -269,9 +265,9 @@ export const about = {
   ],
   info: [
     { label: "Based in", value: "Jakarta, Indonesia" },
-    { label: "Studying", value: "Management, Univ. Airlangga" },
-    { label: "Focus", value: "Analytics & Product" },
-    { label: "Status", value: "Open to internships" },
+    { label: "Education", value: "Management, Universitas Airlangga" },
+    { label: "Focus", value: "Business Development & Data Analytics" },
+    { label: "Status", value: "Open to Work" },
   ],
 };
 
@@ -279,7 +275,7 @@ export const education = {
   eyebrow: "Education",
   university: "Universitas Airlangga",
   degree: "Bachelor's Degree - Management",
-  period: "2022 – Present",
+  period: "2022 – 2026",
   location: "Surabaya, East Java",
   gpa: "3.56",
   gpaLabel: "GPA / 4.00",
@@ -462,19 +458,17 @@ export const certifications = [
 
 export const interests = [
   "Reading business & product case studies",
-  "Basketball",
+  "Running",
   "Exploring new dashboards & data tools",
   "Traveling around Java",
 ];
 
 export const currentlyDoing = [
   "Interning as a Data Analyst at FIFGROUP",
-  "Wrapping up a Business Development internship at BRI",
-  "Finishing my management degree at Universitas Airlangga",
 ];
 
 export const footer = {
   description:
-    "Management undergraduate focused on data analytics, product management, and driving business growth through insight-driven strategy.",
+    "Management fresh graduate focused on data analytics, product management, and driving business growth through insight-driven strategy.",
   copyright: `© ${new Date().getFullYear()} ${site.name}. All rights reserved.`,
 };
